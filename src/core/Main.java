@@ -1,12 +1,9 @@
 package core;
 
 public class Main {
+    private static Window game = Window.getWindow();
     public static void main(String[] args){
-        Window window = Window.getWindow();
-
-        window.init();
-        window.loop();
-        window.stop();
-
+        game.init();
+        game.loop();
     }
 }
