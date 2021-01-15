@@ -1,7 +1,6 @@
 package core;
-import Scene.EditorScene;
-import Scene.GameScene;
-import Scene.SceneManager;
+import scene.Scene;
+import scene.SceneManager;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
@@ -21,9 +20,9 @@ public class Window {
     public static int FPS = 0;
     public static double deltaTime = 0d;
     private static Window window = null;
-    private long glfwWindow;
+    private static long glfwWindow;
 
-    private SceneManager sceneManage = SceneManager.getInstance();
+    Scene scene = null;
 
     private int height;
     private int width;
@@ -96,8 +95,11 @@ public class Window {
         // Make the window visible
         glfwShowWindow(glfwWindow);
         //glfwSetKeyCallback(GLFWwindow, KeyBoardListener::key_event);
+        scene = new Scene();
+
     }
         public void loop() {
+
             while (!glfwWindowShouldClose(glfwWindow)) {
                 long startTime = System.nanoTime();
                 glClearColor(r, g, b, a);
@@ -109,6 +111,7 @@ public class Window {
                   b = Math.max(b - 0.01f, 0);
                   a = Math.max(a - 0.01f, 0);
                 }
+                scene.loader.draw();
                 glfwSwapBuffers(glfwWindow);
                 glfwPollEvents();
 
@@ -116,7 +119,7 @@ public class Window {
                 deltaTime = (endTime - startTime) * 1E-9;
                 FPS = (int)(1.0f / deltaTime);
 
-               // System.out.println(Math.round(FPS));
+                 //System.out.println("FPS "+Math.round(FPS));
             }
             stop();
         }

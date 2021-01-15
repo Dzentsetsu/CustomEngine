@@ -1,8 +1,8 @@
-package Scene;
+package scene;
 
 public class SceneManager {
 
-    private static SceneManager sceneManager = null;
+    public static SceneManager sceneManager = null;
     public static EditorScene editorScene;
     public static GameScene gameScene;
 
@@ -23,7 +23,7 @@ public class SceneManager {
             editorScene.isOn = false;
             gameScene.isOn = true;
             System.out.println("Switched to game view");
-
+            //
         } else {
             gameScene.isOn = false;
             editorScene.isOn = true;

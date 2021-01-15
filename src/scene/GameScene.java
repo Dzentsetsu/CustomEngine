@@ -1,4 +1,4 @@
-package Scene;
+package scene;
 
 public class GameScene extends Scene{
     private static final String NAME = "GameScene";
@@ -9,7 +9,12 @@ public class GameScene extends Scene{
     }
 
     public GameScene(){
+        super();
         isOn = false;
+    }
+
+    public void init(){
+        super.init();
     }
 
     @Override

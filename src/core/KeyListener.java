@@ -1,6 +1,6 @@
 package core;
 
-import Scene.SceneManager;
+import scene.SceneManager;
 
 import static org.lwjgl.glfw.GLFW.*;
 
