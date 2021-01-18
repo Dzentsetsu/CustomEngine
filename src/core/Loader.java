@@ -14,14 +14,14 @@ public class Loader {
 
     private float[] vertexData = {
     // vertex position (NDC)    // vertex colour (RGBA)
-             -0.5f, 0.5f, 0,     1.0f, 0.0f, 0.0f, 1.0f,   // 0
-            -0.5f, -0.5f, 0,     1.0f, 1.0f, 0.0f, 1.0f,   // 1
-             0.5f,  0.5f,  0,     1.0f, 0.0f, 1.0f, 1.0f,   // 2
-            0.5f,-0.5f, 0,     1.0f, 0.0f, 1.0f, 1.0f    // 3
+             0.5f, -0.5f, 0,     1.0f, 0.0f, 0.0f, 1.0f,   // 0
+            0.5f, 0.5f, 0,     1.0f, 1.0f, 0.0f, 1.0f,   // 1
+             -0.5f,  0.5f,  0,     1.0f, 0.0f, 1.0f, 1.0f,   // 2
+            -0.5f,-0.5f, 0,     1.0f, 0.0f, 1.0f, 1.0f    // 3
     };
     private int[] indices = {
             0,1,2, // 1-st triangle
-            2,1,3 // 2-nd triangle
+            2,3,0 // 2-nd triangle
     };
 
     public Loader(DefaultShader shader){

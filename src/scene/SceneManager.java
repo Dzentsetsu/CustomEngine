@@ -2,9 +2,9 @@ package scene;
 
 public class SceneManager {
 
-    public static SceneManager sceneManager = null;
-    public static EditorScene editorScene;
-    public static GameScene gameScene;
+    private static SceneManager sceneManager = null;
+    private static EditorScene editorScene;
+    private static GameScene gameScene;
 
     SceneManager(EditorScene edS, GameScene gameS){
         editorScene = edS;
@@ -16,6 +16,14 @@ public class SceneManager {
             sceneManager = new SceneManager(new EditorScene(),new GameScene());
         }
         return sceneManager;
+    }
+
+    public static EditorScene getEditorScene() {
+        return editorScene;
+    }
+
+    public static GameScene getGameScene(){
+        return  gameScene;
     }
 
     public static void switchScene(){

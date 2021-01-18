@@ -22,7 +22,9 @@ public class Window {
     private static Window window = null;
     private static long glfwWindow;
 
-    Scene scene = null;
+    Scene editorScene = null;
+    Scene gameScene = null;
+    SceneManager sceneManager = null;
 
     private int height;
     private int width;
@@ -95,11 +97,9 @@ public class Window {
         // Make the window visible
         glfwShowWindow(glfwWindow);
         //glfwSetKeyCallback(GLFWwindow, KeyBoardListener::key_event);
-        scene = new Scene();
-
     }
         public void loop() {
-
+            myAppInit();
             while (!glfwWindowShouldClose(glfwWindow)) {
                 long startTime = System.nanoTime();
                 glClearColor(r, g, b, a);
@@ -111,7 +111,7 @@ public class Window {
                   b = Math.max(b - 0.01f, 0);
                   a = Math.max(a - 0.01f, 0);
                 }
-                scene.loader.draw();
+                Scene.loader.draw();
                 glfwSwapBuffers(glfwWindow);
                 glfwPollEvents();
 
@@ -136,4 +136,9 @@ public class Window {
         glfwSetErrorCallback(null).free();
     }
 
+    private void myAppInit(){
+        SceneManager.getInstance();
+        gameScene = SceneManager.getGameScene();
+        editorScene = SceneManager.getEditorScene();
+    }
 }
